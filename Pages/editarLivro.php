@@ -7,8 +7,7 @@
     $codigo = $_GET['codigo'];
     $edt = $_GET['editora'];
     $cat = $_GET['categoria'];
-    echo $edt;
-    echo $codigo;
+  
      ?>
   </head>
   <body>

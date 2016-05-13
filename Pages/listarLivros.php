@@ -44,8 +44,7 @@ and open the template in the editor.
                     <a href="listarCategorias.php" ><input type="button" value="Listar categorias"></a>
                     <a href="listarUsuarios.php" ><input type="button" value="Listar usuários"></a>
                     <a href="log.php" ><input type="button" value="Ver Histórico/Log da Aplicação"></a>
-                    <br><br>
-                    <a href="editarLivro.php"><input type="button" name="name" value="Editar Livro"></a>
+                    
                 </center>
             </td>
           </tr>

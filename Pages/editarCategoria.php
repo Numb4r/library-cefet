@@ -45,7 +45,7 @@
 
                     <table width="1000">
                       <tr>
-                        <td width="30%">Nome a sera editado:<td>
+                        <td width="30%">Nome a sera editado:</td>
                           <td width="70%">
                             <select name="categoria">
                             <?php
