@@ -8,9 +8,50 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title>Biblioteca Digital</title>
+        <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> -->
+        <script src="../jquery.min.js"> </script>
+        <script src="../semantic/dist/semantic.min.js"></script>
     </head>
     <body>
     <center>
+      <div class="ui inverted menu">
+        <div class="item">
+          <a href="#" onclick="$('.ui.sidebar').sidebar('toggle');"><i class="icon large sidebar"></i>Menu</a>
+        </div>
+        <div class="item">
+          Minha Biblioteca Digital
+        </div>
+
+        </div>
+        <div class="ui bottom  attached pushable">
+          <div style="" class="ui inverted labeled left inline vertical sidebar menu uncover ">
+            <a class="item" href="../index.html">
+              <i class="home icon"></i>
+              Home
+            </a>
+            <a href="listarLivros.php" class="item">
+              <i class="book icon"></i>
+              Livros
+            </a>
+            <a href="listarEditoras.php" class="item">
+              <i class="edit icon"></i>
+              Editoras
+            </a>
+            <a href="listarCategorias.php" class="item">
+              <i class="external icon"></i>
+              Categoria
+            </a>
+            <a href="listarUsuarios.php" class="item">
+              <i class="user icon"></i>
+              Usuarios
+            </a>
+            <a href="log.php" class="item">
+              <i class="database icon"></i>
+              Historico
+            </a>
+          </div>
+          <div class="pusher">
     <h1>Minha Biblioteca Digital</h1>
     <h2>Incluindo um novo Livro</h2>
 
@@ -27,7 +68,7 @@ and open the template in the editor.
                   if (!file_exists("$pasta")) {
                     mkdir("$pasta",0777,true);
                   }
-                  $path = "Livros".$nome_real;
+                  $path = "../Livros/".$nome_real;
                   copy($nome_temporario,"$pasta/$nome_real");
 
                   // echo $nome_real.".".$nome_temporario;
@@ -51,17 +92,20 @@ and open the template in the editor.
                          $stmt_editora = $pdo->query("SELECT codigo, nome FROM editora");
                  ?>
 
-                 <form action="novoLivro.php" method="POST" enctype="multipart/form-data">
+
+                 <form class="ui form" action="novoLivro.php" method="POST" enctype="multipart/form-data">
                      <table width="1000">
+
                          <tr>
                              <td width="30%">Título:</td>
-                             <td width="70%"><input type="text" name="titulo" placeholder="Informe o título do livro"> </td>
+                             <td width="70%"><div class="ui input"><input type="text" name="titulo" placeholder="Informe o título do livro"></div> </td>
                          </tr>
                          <tr>
                              <td width="30%">Autores (separar com ponto-e-vírgula):</td>
-                             <td width="70%"><input type="text" name="autores" placeholder="Informe o nome dos autores separados por vírgula"> </td>
+                             <td width="70%"><div class="ui input"><input type="text" name="autores" placeholder="Informe o nome dos autores separados por vírgula"></div> </td>
                          </tr>
                          <tr>
+
                              <td width="30%">Categoria:</td>
                              <td width="70%">
                                  <select name="categoria">
@@ -74,6 +118,7 @@ and open the template in the editor.
                        }
                    ?>
                    </select>
+
                </td>
            </tr>
            <tr>
@@ -93,20 +138,26 @@ and open the template in the editor.
            </tr>
            <tr>
              <td width="30%">Arquivo :</td>
-             <td> <input type="file" name="arquivo" value=""></td>
+             <td>
+
+               <input type="file" class="ui button" name="arquivo" class="" value="">
+
+            </td>
            </tr>
            <tr>
                <td></td>
-               <td><input type="submit" value="Confirmar">
-                   <a href="listarLivros.php"> <input type="button" value="Cancelar"> </a></td>
+               <td><input type="submit" class="ui primary button" value="Confirmar">
+                   <a href="listarLivros.php" class="ui secondary button"> Cancelar </a></td>
            </tr>
        </table>
      </form>
+
 
   <?php
           }
   ?>
   </center>
-
+</div>
+</div>
 </body>
 </html>

@@ -8,8 +8,49 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title>Biblioteca Digital</title>
+        <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> -->
+        <script src="../jquery.min.js"> </script>
+        <script src="../semantic/dist/semantic.min.js"></script>
     </head>
     <body>
+      <div class="ui inverted menu">
+        <div class="item">
+          <a href="#" onclick="$('.ui.sidebar').sidebar('toggle');"><i class="icon large sidebar"></i>Menu</a>
+        </div>
+        <div class="item">
+          Minha Biblioteca Digital
+        </div>
+
+        </div>
+        <div class="ui bottom  attached pushable">
+          <div style="" class="ui inverted labeled left inline vertical sidebar menu uncover ">
+            <a class="item" href="../index.html">
+              <i class="home icon"></i>
+              Home
+            </a>
+            <a href="listarLivros.php" class="item">
+              <i class="book icon"></i>
+              Livros
+            </a>
+            <a href="listarEditoras.php" class="item">
+              <i class="edit icon"></i>
+              Editoras
+            </a>
+            <a href="listarCategorias.php" class="item">
+              <i class="external icon"></i>
+              Categoria
+            </a>
+            <a href="listarUsuarios.php" class="item">
+              <i class="user icon"></i>
+              Usuarios
+            </a>
+            <a href="log.php" class="item">
+              <i class="database icon"></i>
+              Historico
+            </a>
+          </div>
+          <div class="pusher">
     <center>
     <h1>Minha Biblioteca Digital</h1>
     <h2>Incluindo uma nova Categoria</h2>
@@ -33,7 +74,7 @@ and open the template in the editor.
 
                  ?>
 
-                 <form action="novoCategoria.php" method="POST">
+                 <form action="novoCategoria.php" class="ui form" method="POST">
                      <table width="1000">
                          <tr>
                              <td width="30%">Nome:</td>
@@ -42,8 +83,8 @@ and open the template in the editor.
 
            <tr>
                <td></td>
-               <td><input type="submit" value="Confirmar">
-                   <a href="listarCategorias.php"> <input type="button" value="Cancelar"> </a></td>
+               <td><input type="submit" class="ui primary button" value="Confirmar">
+                   <a href="listarCategorias.php" class="ui secondary button"> Cancelar </a></td>
            </tr>
        </table>
      </form>

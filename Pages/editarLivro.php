@@ -3,14 +3,56 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> -->
+    <script src="../jquery.min.js"> </script>
+    <script src="../semantic/dist/semantic.min.js"></script>
     <?php
     $codigo = $_GET['codigo'];
     $edt = $_GET['editora'];
     $cat = $_GET['categoria'];
-  
+
+
      ?>
   </head>
   <body>
+    <div class="ui inverted menu">
+      <div class="item">
+        <a href="#" onclick="$('.ui.sidebar').sidebar('toggle');"><i class="icon large sidebar"></i>Menu</a>
+      </div>
+      <div class="item">
+        Minha Biblioteca Digital
+      </div>
+
+      </div>
+      <div class="ui bottom  attached pushable">
+        <div style="" class="ui inverted labeled left inline vertical sidebar menu uncover ">
+          <a class="item" href="../index.html">
+            <i class="home icon"></i>
+            Home
+          </a>
+          <a href="listarLivros.php" class="item">
+            <i class="book icon"></i>
+            Livros
+          </a>
+          <a href="listarEditoras.php" class="item">
+            <i class="edit icon"></i>
+            Editoras
+          </a>
+          <a href="listarCategorias.php" class="item">
+            <i class="external icon"></i>
+            Categoria
+          </a>
+          <a href="listarUsuarios.php" class="item">
+            <i class="user icon"></i>
+            Usuarios
+          </a>
+          <a href="log.php" class="item">
+            <i class="database icon"></i>
+            Historico
+          </a>
+        </div>
+        <div class="pusher">
     <center>
     <h1>Minha Biblioteca Digital</h1>
     <h2>Editando um livro</h2>
@@ -46,20 +88,24 @@
             <tr>
                 <td>
                 <center>
-                    <h2>Menu</h2>
+                    
 
                 </center>
 
-                <form action="editarLivro.php" method="POST">
-                    <table border="3"width="1000">
+                <form class="ui form" action="editarLivro.php" method="POST">
+                    <table width="1000">
                       <tr>
-                        <td colspan="2">
-                          Livro a ser editado: <?php
-                              foreach ($stmt_livro as $livro) {
-                              if ($codigo == $livro['codigo']) {
-                                echo $livro['titulo'];;
-                                }
-                              } ?>
+                        <td colspan=>
+                          Livro a ser editado:
+                        </td>
+                        <td>
+
+                          <?php
+                          foreach ($stmt_livro as $livro) {
+                            if ($codigo == $livro['codigo']) {
+                              echo $livro['titulo'];;
+                            }
+                          } ?>
                         </td>
                       </tr>
 
@@ -119,8 +165,8 @@
           <tr>
               <td></td>
               <input  disabled type='hidden' name="codigo" value=<?php echo $codigo; ?>>
-              <td><input type="submit" value="Confirmar">
-                  <a href="listarLivros.php"> <input type="button" value="Cancelar"> </a></td>
+              <td><input type="submit" class="ui primary button" value="Confirmar">
+                  <a href="listarLivros.php" class="ui secondary button"> Cancelar </a></td>
           </tr>
           </table>
           </form>

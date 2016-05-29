@@ -8,26 +8,52 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title>Biblioteca Digital</title>
+        <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> -->
+        <script src="../jquery.min.js"> </script>
+        <script src="../semantic/dist/semantic.min.js"></script>
     </head>
     <body>
-    <center>
-    <h1>Minha Biblioteca Digital</h1><br>
-    <center>
-        <h2>Menu</h2>
-        <!-- <a href="novoUsuario.php"><input type="button" name="name" value="Inclur novo Usuario"></a> -->
-        <!-- <a href="novoLivro.php" ><input type="button" value="Incluir novo livro"></a> -->
-        <!-- <a href="novoCategoria.php"><input type="button" name="name" value="Incluir nova "></a> -->
-        <br>
 
-        <a href="listarLivros.php" ><input type="button" value="Listar livros"></a>
-        <a href="listarEditoras.php"  ><input   type="button" value="Listar editoras"></a>
-        <a href="listarCategorias.php" ><input type="button" value="Listar categorias"></a>
-        <a href="listarUsuarios.php" ><input type="button" value="Listar usuários"></a>
-        <!-- <a href="log.php" ><input type="button" value="Ver Histórico/Log da Aplicação"></a> -->
-        <h2>Historico/Log</h2>
-    </center>
-    
+        <div class="ui inverted menu">
+          <div class="item">
+            <a href="#" onclick="$('.ui.sidebar').sidebar('toggle');"><i class="icon large sidebar"></i>Menu</a>
+          </div>
+          <div class="item">
+            Minha Biblioteca Digital
+          </div>
 
+          </div>
+          <div class="ui bottom  attached pushable">
+            <div style="" class="ui inverted labeled left inline vertical sidebar menu uncover ">
+              <a class="item" href="../index.html">
+                <i class="home icon"></i>
+                Home
+              </a>
+              <a href="listarLivros.php" class="item">
+                <i class="book icon"></i>
+                Livros
+              </a>
+              <a href="listarEditoras.php" class="item">
+                <i class="edit icon"></i>
+                Editoras
+              </a>
+              <a href="listarCategorias.php" class="item">
+                <i class="external icon"></i>
+                Categoria
+              </a>
+              <a href="listarUsuarios.php" class="item">
+                <i class="user icon"></i>
+                Usuarios
+              </a>
+              <a href="log.php" class="item">
+                <i class="database icon"></i>
+                Historico
+              </a>
+            </div>
+            <div class="pusher">
+    <center>
+      <h1>Historico</h1>
     <?php
         $pdo = new PDO('sqlite:' . '../Database/banquinho.db') or die("Falha ao estabelecer ligação com a base de dados!\n");
 
@@ -38,7 +64,7 @@ and open the template in the editor.
                 echo "<input type=\"submit\" value=\"Voltar\" >";
                 echo "</from>";
               } else {
-                echo "<table border='3px'>";
+                echo "<table border='3px' width='100%'>";
                 echo "<tr><td>Data</td><td>Tabela</td><td>Antes</td><td>Depois</td></tr>";
                 $stmt_historico = $pdo->query($sql);
                         if (count($stmt_historico)) {
@@ -64,6 +90,9 @@ and open the template in the editor.
                 echo "</table>";
               ?>
   </center>
+
+</div>
+</div>
 
 </body>
 </html>

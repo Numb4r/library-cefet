@@ -7,11 +7,12 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> -->
+        <script src="../jquery.min.js"> </script>
+        <script src="../semantic/dist/semantic.min.js"></script>
         <title>Biblioteca Digital</title>
     </head>
-    <center>
-        <h1>Minha Biblioteca Digital</h1>
-    </center>
     <body>
     <center>
         <?php
@@ -29,21 +30,49 @@ and open the template in the editor.
                 }
             } else {
         ?>
+        <div class="ui inverted menu">
+          <div class="item">
+            <a href="#" onclick="$('.ui.sidebar').sidebar('toggle');"><i class="icon large sidebar"></i>Menu</a>
+          </div>
+          <div class="item">
+            Minha Biblioteca Digital
+          </div>
+
+          </div>
+          <div class="ui bottom  attached pushable">
+            <div style="" class="ui inverted labeled left inline vertical sidebar menu uncover ">
+              <a class="item" href="../index.html">
+                <i class="home icon"></i>
+                Home
+              </a>
+              <a href="listarLivros.php" class="item">
+                <i class="book icon"></i>
+                Livros
+              </a>
+              <a href="listarEditoras.php" class="item">
+                <i class="edit icon"></i>
+                Editoras
+              </a>
+              <a href="listarCategorias.php" class="item">
+                <i class="external icon"></i>
+                Categoria
+              </a>
+              <a href="listarUsuarios.php" class="item">
+                <i class="user icon"></i>
+                Usuarios
+              </a>
+              <a href="log.php" class="item">
+                <i class="database icon"></i>
+                Historico
+              </a>
+            </div>
+            <div class="pusher">
+              <center>
         <table width="1000">
             <tr>
                 <td>
                 <center>
-                    <h2>Menu</h2>
-                    <a href="novoUsuario.php"><input type="button" name="name" value="Inclur novo Usuario"></a>
-                    <!-- <a href="novoLivro.php" ><input type="button" value="Incluir novo livro"></a> -->
-                    <!-- <a href="novoCategoria.php"><input type="button" name="name" value="Incluir nova "></a> -->
-                    <br><br>
-
-                    <a href="listarLivros.php" ><input type="button" value="Listar livros"></a>
-                    <a href="listarEditoras.php"  ><input   type="button" value="Listar editoras"></a>
-                    <a href="listarCategorias.php" ><input type="button" value="Listar categorias"></a>
-                    <!-- <a href="listarUsuarios.php" ><input type="button" value="Listar usuários"></a> -->
-                    <a href="log.php" ><input type="button" value="Ver Histórico/Log da Aplicação"></a>
+                    <a href="novoUsuario.php" class="ui  button secondary">Incluir novo Usuario</a>
                 </center>
             </td>
           </tr>

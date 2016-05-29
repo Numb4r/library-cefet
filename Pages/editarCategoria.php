@@ -3,11 +3,53 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> -->
+    <script src="../jquery.min.js"> </script>
+    <script src="../semantic/dist/semantic.min.js"></script>
   </head>
   <body>
+    <div class="ui inverted menu">
+      <div class="item">
+        <a href="#" onclick="$('.ui.sidebar').sidebar('toggle');"><i class="icon large sidebar"></i>Menu</a>
+      </div>
+      <div class="item">
+        Minha Biblioteca Digital
+      </div>
+
+      </div>
+      <div class="ui bottom  attached pushable">
+        <div style="" class="ui inverted labeled left inline vertical sidebar menu uncover ">
+          <a class="item" href="../index.html">
+            <i class="home icon"></i>
+            Home
+          </a>
+          <a href="listarLivros.php" class="item">
+            <i class="book icon"></i>
+            Livros
+          </a>
+          <a href="listarEditoras.php" class="item">
+            <i class="edit icon"></i>
+            Editoras
+          </a>
+          <a href="listarCategorias.php" class="item">
+            <i class="external icon"></i>
+            Categoria
+          </a>
+          <a href="listarUsuarios.php" class="item">
+            <i class="user icon"></i>
+            Usuarios
+          </a>
+          <a href="log.php" class="item">
+            <i class="database icon"></i>
+            Historico
+          </a>
+        </div>
+        <div class="pusher">
     <center>
     <h1>Minha Biblioteca Digital</h1>
     <h2>Editando uma Categoria</h2>
+
         <?php
         $pdo = new PDO('sqlite:' . '../Database/banquinho.db') or die("Falha ao estabelecer ligação com a base de dados!\n");
 
@@ -34,11 +76,11 @@
             <tr>
                 <td>
                 <center>
-                    <h2>Menu</h2>
+                
 
                 </center>
 
-                <form action="editarCategoria.php" method="POST">
+                <form class="ui form" action="editarCategoria.php" method="POST">
 
 
 
@@ -67,8 +109,8 @@
 
           <tr>
               <td></td>
-              <td><input type="submit" value="Confirmar">
-                  <a href="listarCategorias.php"> <input type="button" value="Cancelar"> </a></td>
+              <td><input type="submit" class="ui primary button" value="Confirmar">
+                  <a href="listarCategorias.php" class="ui secondary button"> Cancelar </a></td>
           </tr>
           </table>
           </form>
