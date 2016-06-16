@@ -19,7 +19,7 @@
     </div>
     <div class="ui bottom  attached pushable">
       <div style="" class="ui inverted labeled left inline vertical sidebar menu uncover ">
-        <a class="item" href="../index.html">
+        <a class="item" href="../index.php">
           <i class="home icon"></i>
           Home
         </a>
@@ -50,6 +50,10 @@
       <h1>Minha Biblioteca Digital</h1>
       <h2>Editando uma editora</h2>
         <?php
+        session_start();
+        if(!isset($_SESSION['login']) && !isset($_SESSION['senha']) ){
+          echo "<meta http-equiv=\"refresh\" content=\"0; url=../index.php\">";
+        }
         $pdo = new PDO('sqlite:' . '../Database/banquinho.db') or die("Falha ao estabelecer ligação com a base de dados!\n");
 
         if (isset($_REQUEST['nome']) && $_REQUEST['nome']!=''

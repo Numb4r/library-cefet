@@ -27,7 +27,7 @@ and open the template in the editor.
       </div>
       <div class="ui bottom  attached pushable">
         <div style="" class="ui inverted labeled left inline vertical sidebar menu uncover ">
-          <a class="item" href="../index.html">
+          <a class="item" href="../index.php">
             <i class="home icon"></i>
             Home
           </a>
@@ -69,6 +69,31 @@ and open the template in the editor.
                             "\",\"".$_REQUEST['email']."\")";
             // $sql = "INSERT INTO livros (codigo,titulo,autores,categoria,editora) VALUES (null,\"".$_REQUEST['titulo'].
 
+
+
+            $to = $_REQUEST['email'];
+$assunto_email = 'Library Cefet - Atualização de Cadastro';
+$corpo_email = 'Olá!\nSeu cadastro no site Library Cefet acaba de ser atualizado.';
+// cabeçalho do e-mail
+$headers  = 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+// cabeçaho do e-mail
+$headers .= 'To: <'.$_REQUEST['email'].'>' . "\r\n";
+$headers .= 'From: <Noreplyfakeaccontl@gmail.com>' . "\r\n";
+
+// envia o e-mail
+$email_enviado = mail($to, $assunto_email, $corpo_email, $headers);
+// verifica se o e-mail foi enviado
+if ($email_enviado) {
+   echo "<br\><br\>";
+   echo "Atualização: e-mail enviado para o usuário!\n";
+   echo "<br\>";
+} else {
+   echo "<br\><br\>";
+   echo "Atualização: e-mail não pode ser enviado para o usuário!\n";
+   echo "<br\>";
+}
+
             if (!$pdo->query($sql)) {
                 echo "Erro ao executar o cadastro do usuario!";
                 echo "<form action=\"novoUsuario.php\" method=\"POST\"> ";
@@ -77,7 +102,7 @@ and open the template in the editor.
             } else {
               echo "Usuario cadastrado com sucesso!";
                              echo "<br>";
-                             echo "<a href=\"listarUsuarios.php\"> <input type=\"button\" value=\"Voltar\" > </a>";
+                             echo "<a href=\"../index.php\"> <input type=\"button\" value=\"Voltar\" > </a>";
                          }
                      } else {
 
@@ -106,7 +131,7 @@ and open the template in the editor.
            <tr>
                <td></td>
                <td><input type="submit" class="ui primary button"value="Confirmar">
-                   <a href="listarUsuarios.php" class="ui secondary button"> Cancelar </a></td>
+                   <a href="../index.php" class="ui secondary button"> Cancelar </a></td>
            </tr>
        </table>
      </form>

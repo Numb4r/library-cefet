@@ -42,7 +42,7 @@ and open the template in the editor.
             </div>
             <div class="ui bottom  attached pushable">
               <div style="" class="ui inverted labeled left inline vertical sidebar menu uncover ">
-                <a class="item" href="../index.html">
+                <a class="item" href="../index.php">
                   <i class="home icon"></i>
                   Home
                 </a>
